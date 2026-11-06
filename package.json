@@ -1,0 +1,7 @@
+{
+  "name": "courier-supply-models",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Booked shifts vs open market vs a mix of both, simulated for one day in a made-up delivery city. Runs in the browser.",
+  "scripts": { "test": "node --test core.test.js", "start": "python3 -m http.server 8000" }
+}
