@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Courier Supply Models - booked shifts vs open market</title>
+<meta name="description" content="Simulate one day in a made-up delivery city and compare booked shifts, an open market and a mix of both: late orders, lost orders, cost per order and what couriers earn. Runs in the browser, no install.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2127'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui,-apple-system,Segoe UI,Roboto,sans-serif' font-size='15' font-weight='700' letter-spacing='-0.5' fill='%23fff'%3EDC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1c2127"/><text x="16" y="22" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="15" font-weight="700" letter-spacing="-0.5" fill="#fff">DC</text></svg>
+    <div>
+      <h1>Courier Supply Models</h1>
+      <p>Booked shifts or an open market: who delivers your dinner rush?</p>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button class="btn" id="reset" title="Back to the default day">Reset</button>
+    <button class="btn" id="share" title="Copy a link to this exact setup">Copy link</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="stage card" aria-label="One day in the city">
+    <div class="chart-title"><h3>Orders per hour</h3>
+      <div class="legend"><span><i class="sw served"></i>Delivered</span><span><i class="sw lost"></i>Lost (customer gave up)</span><span><i class="sw line"></i>Couriers on the road (as order capacity)</span></div>
+    </div>
+    <svg class="chart" id="chartOrders" viewBox="0 0 720 280" role="img" aria-label="Orders per hour, delivered and lost, with courier capacity"></svg>
+    <div class="chart-title"><h3>Delivery time</h3>
+      <div class="legend"><span><i class="sw time"></i>Minutes, door to door</span></div>
+    </div>
+    <svg class="chart" id="chartTime" viewBox="0 0 720 150" role="img" aria-label="Average delivery time per hour"></svg>
+    <p class="takeaway" id="takeaway" aria-live="polite"></p>
+  </section>
+
+  <aside class="side">
+    <section class="card">
+      <h2>Scenes</h2>
+      <div class="chips" id="scenes"></div>
+    </section>
+    <section class="card">
+      <h2>Model on the chart</h2>
+      <div class="models" id="models" role="radiogroup" aria-label="Supply model"></div>
+    </section>
+  </aside>
+</main>
+
+<section class="wide card">
+  <h2>Side by side</h2>
+  <div class="table-scroll"><table class="compare" id="compare"></table></div>
+  <p class="muted small">Same day, same demand, same noise for all three. The best value in each row is highlighted.</p>
+</section>
+
+<section class="wide card">
+  <h2>Knobs</h2>
+  <div class="params" id="params"></div>
+</section>
+
+<section class="wide card about">
+  <h2>How it works</h2>
+  <div class="cols">
+    <div>
+      <p>Hey! This one comes from a question I kept running into in delivery ops: do you book couriers into fixed shifts, or let anyone log in when they feel like it? Both work. They break in different places.</p>
+      <p>Pick a scene, move the knobs, and see where each model hurts. A rainy dinner, a slow Tuesday and a wrong forecast are a good start.</p>
+      <p>It's a small experiment on a made-up city, not a model of any real company or market. Every number is an input you can change.</p>
+    </div>
+    <div>
+      <p><strong>Booked shifts.</strong> A planner books couriers for each hour from a forecast so they are about 70% busy. Booked couriers get a guaranteed hourly rate, whether orders show up or not. Some don't show up (no-shows). If the forecast is wrong, nobody can flex.</p>
+      <p><strong>Open market.</strong> Couriers come online when their expected earnings per hour beat what they would accept (their reservation wage), and the platform pays per delivered order. The number online is the point where earnings and supply balance, and it moves only part of the way each hour (response speed). Great at flexing, less great at a sharp peak.</p>
+      <p><strong>Hybrid.</strong> A booked base for the share of the plan you choose, with the open market topping up on top of it.</p>
+      <p><strong>Orders and delivery time.</strong> A courier can deliver about 3 orders an hour when fully busy. The busier couriers are, the longer a delivery takes. Past about 40 minutes, customers start to give up, up to half of them. The curve is a simple rule of thumb, not measured data.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>By <a href="https://github.com/dmcataneo" rel="author">dmcataneo</a> · <a href="https://github.com/dmcataneo/courier-supply-models">Source code</a></p>
+  <p>Everything is simulated in your browser with made-up numbers. Nothing is uploaded.</p>
+</footer>
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
