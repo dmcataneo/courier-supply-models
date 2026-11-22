@@ -1,10 +1,14 @@
 # Courier Supply Models
 
-Hey! This one comes from a question I kept running into in delivery ops: do you book couriers into fixed shifts, or let anyone log in when they feel like it? Both work. They break in different places.
+> A toy for comparing ways to put couriers on the road. Not a product.
+>
+> **Type:** side project, for fun · **Stack:** plain HTML and JS, no dependencies · **Author:** an operations person, not a developer. I build these at night, next to my day job. Nothing very serious.
 
-This app simulates one day in a made-up city and compares three ways to put couriers on the road: booked shifts, an open market, and a mix of both. Pick a scene, move the knobs, and see where each model hurts.
+Do you book couriers into fixed shifts, or let anyone log in when they feel like it? I kept running into that question in delivery and micromobility. Both ways work. They just break in different places.
 
-It's a small experiment, not a model of any real company or market: fictional city, made-up numbers, simple rules.
+This simulates one day in a made-up city with three ways to put couriers on the road: booked shifts, an open market, and a mix of both. Pick a scene, move the knobs, see where each one hurts.
+
+Fictional city, made-up numbers, simple rules. It does not model any real company or market.
 
 It runs in the browser. There is nothing to install: open `index.html`, or serve the folder with any static file server.
 
