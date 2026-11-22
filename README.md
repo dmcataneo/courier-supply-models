@@ -2,7 +2,7 @@
 
 > A toy for comparing ways to put couriers on the road. Not a product.
 >
-> **Type:** side project, for fun · **Stack:** plain HTML and JS, no dependencies · **Author:** an operations person, not a developer. I build these at night, next to my day job. Nothing very serious.
+> **Type:** side project, for fun · **Stack:** plain HTML and JS, no dependencies · **Author:** an operations person, not a developer. I build these in my free time, next to my day job. Nothing very serious.
 
 Do you book couriers into fixed shifts, or let anyone log in when they feel like it? I kept running into that question in delivery and micromobility. Both ways work. They just break in different places.
 
